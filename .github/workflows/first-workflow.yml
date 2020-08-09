@@ -74,5 +74,5 @@ jobs:
       uses: deka0106/upload-to-dropbox@v1
       with:
         dropbox_access_token: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
-        file: /app/build/outputs/apk/debug/app-debug.apk
+        file: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
         path: /appbuilds/app-debug.apk
