@@ -70,6 +70,11 @@ jobs:
       with:
         name: App
         path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
+    - name: Sleep for 30 seconds
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '45s'
+        
     - name: Upload to dropbox 
       uses: deka0106/upload-to-dropbox@v1
       with:
