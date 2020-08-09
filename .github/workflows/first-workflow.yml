@@ -42,9 +42,13 @@ jobs:
         appId: ${{ secrets.FIREBASE_APP_ID }}
         token: ${{ secrets.FIREBASE_TOKEN }}
         file: app/build/outputs/apk/debug/app-debug.apk              
-              
-    - name: Upload APK
-      uses: actions/upload-artifact@v2
+    - name: send default message
+      uses: appleboy/telegram-action@master
       with:
-        name: App
-        path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}          
+#     - name: Upload APK
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: App
+#         path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
