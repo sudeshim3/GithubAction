@@ -9,6 +9,18 @@ on:
       branches: [ master ]
 
 jobs:
+    
+ build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: send custom message with args
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_CHAT }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        args: The ${{ github.event_name }} event triggered first step.
 #   test:
 #     name: Run Unit Tests
 #     runs-on: ubuntu-latest
