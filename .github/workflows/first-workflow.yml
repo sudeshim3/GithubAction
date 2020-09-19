@@ -42,13 +42,13 @@ jobs:
     - name: Build Debug APK
       run: bash ./gradlew :app:assembleDebug
 
-# Step to Submit the generated APK to Firebase App Distribution
-#     - name: upload artifact to Firebase App Distribution
-#       uses: wzieba/Firebase-Distribution-Github-Action@v1
-#       with:
-#         appId: ${{ secrets.FIREBASE_APP_ID }}
-#         token: ${{ secrets.FIREBASE_TOKEN }}
-#         file: app/build/outputs/apk/debug/app-debug.apk              
+#Step to Submit the generated APK to Firebase App Distribution
+    - name: Upload artifact to Firebase App Distribution
+      uses: wzieba/Firebase-Distribution-Github-Action@v1
+      with:
+        appId: ${{ secrets.FIREBASE_APP_ID }}
+        token: ${{ secrets.FIREBASE_TOKEN }}
+        file: app/build/outputs/apk/debug/app-debug.apk              
     - name: send default message
       uses: appleboy/telegram-action@master
       with:
